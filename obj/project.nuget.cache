@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VNw7tmZMHlWMJY136To2f5ha9Kh2wwjnTwai1GmlZyg5GNH2Br2eT/fcLnTiP+DhNTTLy12UFz0YKgbmobJPXA==",
+  "dgSpecHash": "SbN8XNJZyyolG8U4PeQUV3GtftLCOTU9uLY3nocOipizBUvLQUI6nWgLsqr86nFIdKYV4eWSRDsJ3C3M1dXe8Q==",
   "success": true,
-  "projectFilePath": "/workspaces/codespaces-blank/AdventOfCode23.csproj",
+  "projectFilePath": "/Users/iramlee/advent-of-code/advent-of-code-23/AdventOfCode23.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

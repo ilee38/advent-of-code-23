@@ -16,5 +16,6 @@ var day2 = new Day2();
 int sumOfPowers = day2.ComputeSumOfPowers();
 Console.WriteLine($"Day 2: sum of powers: {sumOfPowers}");
 
+/*** Day 3 puzzle ***/
 
 

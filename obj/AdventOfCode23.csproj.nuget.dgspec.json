@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/codespaces-blank/AdventOfCode23.csproj": {}
+    "/Users/iramlee/advent-of-code/advent-of-code-23/AdventOfCode23.csproj": {}
   },
   "projects": {
-    "/workspaces/codespaces-blank/AdventOfCode23.csproj": {
+    "/Users/iramlee/advent-of-code/advent-of-code-23/AdventOfCode23.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/codespaces-blank/AdventOfCode23.csproj",
+        "projectUniqueName": "/Users/iramlee/advent-of-code/advent-of-code-23/AdventOfCode23.csproj",
         "projectName": "AdventOfCode23",
-        "projectPath": "/workspaces/codespaces-blank/AdventOfCode23.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/codespaces-blank/obj/",
+        "projectPath": "/Users/iramlee/advent-of-code/advent-of-code-23/AdventOfCode23.csproj",
+        "packagesPath": "/Users/iramlee/.nuget/packages/",
+        "outputPath": "/Users/iramlee/advent-of-code/advent-of-code-23/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/Users/iramlee/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.306/sdk/7.0.306/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.309/RuntimeIdentifierGraph.json"
         }
       }
     }
