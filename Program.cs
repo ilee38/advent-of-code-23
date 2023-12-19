@@ -8,14 +8,16 @@ int sum;
 // Console.WriteLine($"Day 1 sum: {sum}");
 
 /*** Day 2 puzzle ***/
-var day2 = new Day2();
+//var day2 = new Day2();
 // Part 1
 //sum = day2.ComputeSumOfIds();
 //Console.WriteLine($"Day 2 sum: {sum}");
 // Part 2
-int sumOfPowers = day2.ComputeSumOfPowers();
-Console.WriteLine($"Day 2: sum of powers: {sumOfPowers}");
+//int sumOfPowers = day2.ComputeSumOfPowers();
+//Console.WriteLine($"Day 2: sum of powers: {sumOfPowers}");
 
 /*** Day 3 puzzle ***/
-
+var day3 = new Day3();
+sum = day3.ComputeSum();
+Console.WriteLine($"Day 3 sum: {sum}");
 
