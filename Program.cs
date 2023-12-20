@@ -18,6 +18,10 @@ int sum;
 
 /*** Day 3 puzzle ***/
 var day3 = new Day3();
-sum = day3.ComputeSum();
-Console.WriteLine($"Day 3 sum: {sum}");
+// Part 1
+//sum = day3.ComputeSum();
+//Console.WriteLine($"Day 3 sum: {sum}");
+// Part 2
+sum = day3.GearRatioSum();
+Console.WriteLine($"Day 3, gear ratio sum: {sum}");
 
