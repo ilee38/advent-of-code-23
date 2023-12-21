@@ -17,11 +17,15 @@ int sum;
 //Console.WriteLine($"Day 2: sum of powers: {sumOfPowers}");
 
 /*** Day 3 puzzle ***/
-var day3 = new Day3();
+//var day3 = new Day3();
 // Part 1
 //sum = day3.ComputeSum();
 //Console.WriteLine($"Day 3 sum: {sum}");
 // Part 2
-sum = day3.GearRatioSum();
-Console.WriteLine($"Day 3, gear ratio sum: {sum}");
+// sum = day3.GearRatioSum();
+//Console.WriteLine($"Day 3, gear ratio sum: {sum}");
 
+/*** Day 4 puzzle ***/
+var day4 = new Day4();
+sum = day4.TotalScratchCardsPoints();
+Console.WriteLine($"Day 4 total points: {sum}");
