@@ -64,7 +64,7 @@ public class Day4
       return matchingNumbersCount > 0 ? (int)Math.Pow(2, matchingNumbersCount - 1) : matchingNumbersCount;
    }
 
-   private void ObtainWinningsFromCard(string card, List<List<int>> cardWinnings, int currentCardNumber, Dictionary<int, List<int>> cardsCopiesWon)
+   private void ObtainWinningsFromCard(string card, List<List<int>> cardWinnings, int currentCardNumber, Dictionary<int, List<int>> cardsCopiesWonCache)
    {
       int matchingNumbersCount = 0;
 
@@ -90,13 +90,13 @@ public class Day4
          cardWinnings[currentCardNumber - 1].Add(currentCardNumber + i);
       }
 
-      if (!cardsCopiesWon.ContainsKey(currentCardNumber))
+      if (!cardsCopiesWonCache.ContainsKey(currentCardNumber))
       {
-         cardsCopiesWon.Add(currentCardNumber, cardWinnings[currentCardNumber - 1]);
+         cardsCopiesWonCache.Add(currentCardNumber, cardWinnings[currentCardNumber - 1]);
       }
    }
 
-   private void ParseCardCopies(List<List<int>> cardWinnings, Dictionary<int, List<int>> cardsCopiesWon)
+   private void ParseCardCopies(List<List<int>> cardWinnings, Dictionary<int, List<int>> cardsCopiesWonCache)
    {
       int currentIndex = 0;
       while (true)
@@ -108,7 +108,7 @@ public class Day4
 
          for (int i = 1; i < cardWinnings[currentIndex].Count; i++)
          {
-            cardWinnings.Add(cardsCopiesWon[cardWinnings[currentIndex][i]]);
+            cardWinnings.Add(cardsCopiesWonCache[cardWinnings[currentIndex][i]]);
          }
          currentIndex += 1;
       }
