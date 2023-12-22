@@ -27,5 +27,7 @@ int sum;
 
 /*** Day 4 puzzle ***/
 var day4 = new Day4();
-sum = day4.TotalScratchCardsPoints();
-Console.WriteLine($"Day 4 total points: {sum}");
+//sum = day4.TotalScratchCardsPoints();
+//Console.WriteLine($"Day 4 total points: {sum}");
+sum = day4.TotalScratchCards();
+Console.WriteLine($"Day 4 - total cards won: {sum}");
