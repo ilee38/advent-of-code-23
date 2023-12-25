@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 
+*.txt
+
 bin/
 obj/
 

@@ -26,8 +26,13 @@ int sum;
 //Console.WriteLine($"Day 3, gear ratio sum: {sum}");
 
 /*** Day 4 puzzle ***/
-var day4 = new Day4();
+//var day4 = new Day4();
 //sum = day4.TotalScratchCardsPoints();
 //Console.WriteLine($"Day 4 total points: {sum}");
-sum = day4.TotalScratchCards();
-Console.WriteLine($"Day 4 - total cards won: {sum}");
+//sum = day4.TotalScratchCards();
+//Console.WriteLine($"Day 4 - total cards won: {sum}");
+
+/*** Day 5 puzzle ***/
+var day5 = new Day5();
+double location = day5.FindLowestLocationNumber();
+Console.WriteLine($"Day 5 - location = {location}");
