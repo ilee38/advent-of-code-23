@@ -6,7 +6,6 @@ namespace AdventOfCode23;
 public class Day5
 {
    private static readonly Regex DigitsPattern = new Regex(@"\d+");
-   private List<double> Seeds;
 
    /// <summary>
    /// Dictionaries representing the maps, where:
@@ -21,16 +20,34 @@ public class Day5
    private Dictionary<double, (double, double)> TemperatureToHumidity = new();
    private Dictionary<double, (double, double)> HumidityToLocation = new();
 
+   // Part 1 solution
    public double FindLowestLocationNumber()
    {
       List<double> seedLocations;
       List<string> data = new List<string>(File.ReadAllLines("Day5/input.txt"));
+      List<double> seeds;
 
       ParseAllMaps(data);
-      Seeds = ParseSeeds(data[0]);
-      seedLocations = FindSeedLocations(Seeds);
+      seeds = ParseSeeds(data[0]);
+      seedLocations = FindSeedLocations(seeds);
 
       return seedLocations.Min();
+   }
+
+   // Part 2 solution
+   public double FindLowestLocationForSeedRanges()
+   {
+      List<string> data = new List<string>(File.ReadAllLines("Day5/input.txt"));
+      List<double> seedRangesLocations;
+
+      // List of tuples of seed ranges where: Item1 = range start, Item2 = length of range
+      List<(double, double)> seedRanges;
+
+      ParseAllMaps(data);
+      seedRanges = ParseSeedRanges(data[0]);
+      seedRangesLocations = FindSeedRangesLocations(seedRanges);
+
+      return seedRangesLocations.Min();
    }
 
    private void ParseAllMaps(List<string> data)
@@ -96,9 +113,9 @@ public class Day5
          }
 
          var rangeValues = DigitsPattern.Matches(line);
-         rangeLength = Int64.Parse(rangeValues[2].Value);
-         sourceRangeStart = Int64.Parse(rangeValues[1].Value);
-         destinationRangeStart = Int64.Parse(rangeValues[0].Value);
+         rangeLength = double.Parse(rangeValues[2].Value);
+         sourceRangeStart = double.Parse(rangeValues[1].Value);
+         destinationRangeStart = double.Parse(rangeValues[0].Value);
 
          map.Add(sourceRangeStart, (destinationRangeStart, rangeLength));
       }
@@ -108,6 +125,18 @@ public class Day5
    {
       var parsedSeeds = DigitsPattern.Matches(seedsLine);
       return parsedSeeds.Cast<Match>().Select(match => double.Parse(match.Value)).ToList();
+   }
+
+   private List<(double, double)> ParseSeedRanges(string seedsLine)
+   {
+      var seedRanges = new List<(double, double)>();
+      var parsedSeedRanges = DigitsPattern.Matches(seedsLine);
+
+      for (int i = 0; i < parsedSeedRanges.Count - 1; i += 2)
+      {
+         seedRanges.Add((double.Parse(parsedSeedRanges[i].Value), double.Parse(parsedSeedRanges[i+1].Value)));
+      }
+      return seedRanges;
    }
 
    private List<double> FindSeedLocations(List<double> seeds)
@@ -147,5 +176,45 @@ public class Day5
       }
 
       return destination;
+   }
+
+   private List<double> FindSeedRangesLocations(List<(double, double)> seedRanges)
+   {
+      List<double> locations = new();
+
+      (double startLocation, double endLocation) currentRange = new();
+      foreach ((double, double) seedRange in seedRanges)
+      {
+         currentRange.startLocation = seedRange.Item1;
+         currentRange.endLocation = seedRange.Item1 + (seedRange.Item2 - 1);
+
+         currentRange = FindDestinationRangeInMap(SeedToSoil, currentRange);
+         currentRange = FindDestinationRangeInMap(SoilToFertilizer, currentRange);
+         currentRange = FindDestinationRangeInMap(FertilizerToWater, currentRange);
+         currentRange = FindDestinationRangeInMap(WaterToLight, currentRange);
+         currentRange = FindDestinationRangeInMap(LightToTemperature, currentRange);
+         currentRange = FindDestinationRangeInMap(TemperatureToHumidity, currentRange);
+         currentRange = FindDestinationRangeInMap(HumidityToLocation, currentRange);
+         locations.Add(currentRange.startLocation);
+         locations.Add(currentRange.endLocation);
+      }
+      return locations;
+   }
+
+   private (double, double) FindDestinationRangeInMap(Dictionary<double, (double, double)> map,
+      (double, double) range)
+   {
+      (double, double) destinationRange = new();
+      destinationRange.Item1 = FindWithinRangeInMap(map, range.Item1);
+      destinationRange.Item2 = FindWithinRangeInMap(map, range.Item2);
+      return destinationRange;
+   }
+
+   private double FindWithinRangeInMap(Dictionary<double, (double, double)> map, double start)
+   {
+      // TODO: need to determine if seed/source range spans more than one destination ranges
+      // If this happens, then there might be an element within the source range with lower
+      // destination (because destination ranges can be inverted, i.e. map a source to a lower number)
+      return 0;
    }
 }
