@@ -33,6 +33,11 @@ int sum;
 //Console.WriteLine($"Day 4 - total cards won: {sum}");
 
 /*** Day 5 puzzle ***/
-var day5 = new Day5();
-double location = day5.FindLowestLocationForSeedRanges();
-Console.WriteLine($"Day 5 - location = {location}");
+//var day5 = new Day5();
+//double location = day5.FindLowestLocationForSeedRanges();
+//Console.WriteLine($"Day 5 - location = {location}");
+
+/*** Day 6 puzzle ***/
+var day6 = new Day6();
+double waysToWinMultiplication = day6.WaysToWinMultiplication();
+Console.WriteLine($"Day 6 part 1 multiplication: {waysToWinMultiplication}");
