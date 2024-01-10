@@ -39,5 +39,6 @@ int sum;
 
 /*** Day 6 puzzle ***/
 var day6 = new Day6();
-double waysToWinMultiplication = day6.WaysToWinMultiplication();
-Console.WriteLine($"Day 6 part 1 multiplication: {waysToWinMultiplication}");
+//double waysToWinMultiplication = day6.WaysToWinMultiplication();
+double waysToWin = day6.NumberOfWaysToWin();
+Console.WriteLine($"Day 6 part 2: {waysToWin}");
